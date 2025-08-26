@@ -1,188 +1,255 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IA Black — Ative seu Mecanismo</title>
-  <meta name="description" content="Página enxuta, rápida e escura para tráfego pago. Preserva UTMs, dispara Pixel e envia para WhatsApp/Checkout." />
-  <meta property="og:title" content="IA Black — Ative seu Mecanismo" />
-  <meta property="og:description" content="Estrutura sigilosa, simples e direta para conversão no mobile." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/og.jpg" />
-  <meta name="format-detection" content="telephone=no" />
-  <link rel="icon" href="/favicon.ico" />
-  <!-- Tailwind via CDN (rápido para landing única). Para projeto maior, compilar localmente. -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root { --brand: #06f49c; --brand-2:#07b67a; }
-    .grain { position: fixed; inset: 0; pointer-events:none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'160\' height=\'160\'><filter id=\'n\'><feTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'2\' stitchTiles=\'stitch\'/></filter><rect width=\'100%\' height=\'100%\' filter=\'url(%23n)\' opacity=\'0.06\'/></svg>'); mix-blend-mode: overlay; }
-    .glow { box-shadow: 0 0 40px rgba(6,244,156,.25), inset 0 0 18px rgba(6,244,156,.15); }
-    .btn { background: linear-gradient(90deg, var(--brand), var(--brand-2)); }
-    .btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
-  </style>
-  
-  <!-- Meta Pixel (substitua PIXEL_ID) -->
+
+  <title>Sistema Oculto – Acesso Sigiloso</title>
+  <meta name="description" content="Um sistema oculto que fatura todos os dias no automático — sem aparecer." />
+  <meta name="theme-color" content="#ff2ea6" /> 
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Meta Pixel Code -->
   <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0;n.version='2.0';n.queue=[]; t=b.createElement(e);t.async=!0; t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    (function(){
-      var q = new URLSearchParams(location.search);
-      var PIXEL = q.get('pixel') || 'REPLACE_WITH_PIXEL_ID'; // altere pelo seu Pixel ID
-      fbq('init', PIXEL);
-    })();
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '664309226562112');
     fbq('track', 'PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    :root{
+      --accent:#ff2ea6;
+      --accent-soft:rgba(255,46,166,.22);
+      --bg:#07050A;
+      --text:#f4f4f5;
+      --muted:#b9b3c5;
+      --on-accent:#0b0b0b;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      text-align:center;
+      overflow-x:hidden;
+    }
+    .wrap{
+      position:relative;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+    .content{width:100%;max-width:700px;z-index:1;position:relative}
+
+    /* Fundo: códigos hacker neon */
+    #matrixCanvas{
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      background:#000;
+    }
+
+    .proof-img{
+      margin-bottom:12px;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 0 22px var(--accent-soft),0 0 60px rgba(255,46,166,.18);
+    }
+    .proof-img img{width:100%;height:auto;display:block}
+    .proof-caption{font-size:13px;color:var(--muted);margin-bottom:18px}
+
+    .title{font-size:clamp(26px,5vw,40px);font-weight:800;margin-bottom:12px}
+    .subtitle{font-size:18px;font-weight:600;color:var(--muted);margin-bottom:20px}
+
+    .btn{
+      display:inline-block;
+      padding:18px 28px;
+      font-size:18px;
+      font-weight:800;
+      border-radius:999px;
+      background:var(--accent);
+      color:var(--on-accent);
+      text-decoration:none;
+      box-shadow:0 0 22px var(--accent-soft),0 0 42px var(--accent-soft);
+      transition:transform .15s ease,box-shadow .15s ease;
+      animation:pulse 2s infinite;
+    }
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 0 30px rgba(255,46,166,.6),0 0 60px rgba(255,46,166,.35);
+    }
+
+    @keyframes pulse{
+      0%{box-shadow:0 0 22px var(--accent-soft),0 0 42px var(--accent-soft);}
+      50%{box-shadow:0 0 40px rgba(255,46,166,.8),0 0 80px rgba(255,46,166,.5);}
+      100%{box-shadow:0 0 22px var(--accent-soft),0 0 42px var(--accent-soft);}
+    }
+
+    .slots{
+      margin-top:16px;
+      font-size:16px;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      box-shadow:0 0 16px var(--accent-soft);
+    }
+    .slots .value{
+      background:var(--accent);
+      color:var(--on-accent);
+      padding:6px 14px;
+      border-radius:999px;
+      font-weight:900;
+      min-width:48px;
+    }
+
+    footer{margin-top:30px;font-size:12px;color:var(--muted)}
+  </style>
 </head>
-<body class="min-h-screen bg-black text-white selection:bg-emerald-400/30 selection:text-white">
-  <div class="grain"></div>
+<body>
+  <!-- Meta Pixel (noscript) -->
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=664309226562112&ev=PageView&noscript=1" />
+  </noscript>
 
-  <!-- Header -->
-  <header class="sticky top-0 z-40 backdrop-blur bg-black/60 border-b border-white/10">
-    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <div class="h-8 w-8 rounded-xl glow" style="background:radial-gradient(circle at 30% 30%, var(--brand), transparent 60%), #0b0b0b"></div>
-        <span class="font-semibold tracking-wide">IA Black</span>
+  <!-- Fundo: códigos hacker -->
+  <canvas id="matrixCanvas"></canvas>
+
+  <div class="wrap">
+    <div class="content">
+      <!-- Print -->
+      <div class="proof-img">
+        <img src="print-painel.jpg" alt="Comprovante real do painel" />
       </div>
-      <nav class="hidden sm:flex items-center gap-6 text-sm text-white/70">
-        <a href="#como-funciona" class="hover:text-white">Como funciona</a>
-        <a href="#prova" class="hover:text-white">Provas</a>
-        <a href="#faq" class="hover:text-white">Dúvidas</a>
-      </nav>
-      <a id="cta-top" href="#" class="btn text-sm font-semibold px-4 py-2 rounded-xl" onclick="fbq('track','Lead')">Ativar agora</a>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="relative">
-    <div class="absolute inset-0 -z-10" aria-hidden="true" style="background:radial-gradient(60% 40% at 50% 0%, rgba(6,244,156,.20), transparent 60%)"></div>
-    <div class="mx-auto max-w-6xl px-4 py-20 md:py-28">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h1 class="text-4xl md:text-6xl font-black leading-tight">
-            Ative seu <span class="text-emerald-400">Mecanismo</span> e
-            <span class="block">fature no sigilo</span>
-          </h1>
-          <p class="mt-5 text-white/70 max-w-lg">Landing ultra-rápida, focada em mobile. Preserva UTMs, dispara Pixel e envia direto para WhatsApp/Checkout. Sem enrolação — só o que converte.</p>
-          <div class="mt-8 flex flex-col sm:flex-row gap-3">
-            <a id="cta-hero" href="#" class="btn glow px-6 py-4 rounded-2xl text-lg font-bold text-black" onclick="fbq('track','Lead')">Quero ativar agora</a>
-            <a href="#como-funciona" class="px-6 py-4 rounded-2xl border border-white/15 text-white/80 hover:text-white">Ver como funciona</a>
-          </div>
-          <p class="mt-3 text-xs text-white/40">* Botão leva com UTMs intactas. Pixel dispara Lead no clique.</p>
-        </div>
-        <div class="relative">
-          <div class="aspect-[9/16] md:aspect-[4/5] w-full rounded-3xl overflow-hidden ring-1 ring-white/10 glow">
-            <img src="https://images.unsplash.com/photo-1556740772-1a741367b93e?q=80&w=1200&auto=format&fit=crop" alt="Celular com notificações de vendas" class="h-full w-full object-cover"/>
-          </div>
-          <div class="absolute -bottom-6 -right-4 md:-right-10 bg-white/5 backdrop-blur border border-white/10 rounded-2xl px-4 py-3 text-sm">
-            <span class="text-emerald-400 font-semibold">Rápido de subir</span>
-            <span class="block text-white/60">Arquivos mínimos. Sem build.</span>
-          </div>
-        </div>
+      <div class="proof-caption">
+        Resultado real do meu painel — Saldo total R$ 28.736,75 • Disponível R$ 19.210,87 • Vendas hoje R$ 1.584,37 • Ontem R$ 1.897,28.<br />
+        <em>Resultados variam conforme aplicação.</em>
       </div>
-    </div>
-  </section>
 
-  <!-- Como funciona -->
-  <section id="como-funciona" class="mx-auto max-w-6xl px-4 py-16 border-t border-white/10">
-    <h2 class="text-2xl md:text-3xl font-extrabold">Como funciona</h2>
-    <div class="mt-6 grid md:grid-cols-3 gap-6">
-      <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
-        <p class="text-emerald-400 text-sm font-semibold">01</p>
-        <h3 class="mt-2 font-semibold">Preserva UTMs</h3>
-        <p class="text-white/70 text-sm mt-1">Captura automaticamente os parâmetros da URL e adiciona no seu link final (WhatsApp ou checkout).</p>
+      <!-- Texto -->
+      <h1 class="title">⚡ Um sistema oculto que fatura todos os dias no automático — sem aparecer.</h1>
+      <p class="subtitle">Receba agora o acesso exclusivo direto no WhatsApp.</p>
+
+      <!-- CTA -->
+      <a
+        href="https://wa.me/5521988876516?text=Carina%2C%20preciso%20entender%20melhor%20do%20que%20se%20trata..."
+        target="_blank" rel="noopener"
+        class="btn"
+        onclick="fbq && fbq('track','Lead');"
+      >
+        QUERO ATIVAR MEU SISTEMA AGORA
+      </a>
+
+      <!-- Contador -->
+      <div class="slots">
+        Acessos disponíveis <span class="value" id="slots-value">20</span>
       </div>
-      <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
-        <p class="text-emerald-400 text-sm font-semibold">02</p>
-        <h3 class="mt-2 font-semibold">Pixel pronto</h3>
-        <p class="text-white/70 text-sm mt-1">Inclui Meta Pixel com PageView + evento de Lead no clique do CTA.</p>
-      </div>
-      <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
-        <p class="text-emerald-400 text-sm font-semibold">03</p>
-        <h3 class="mt-2 font-semibold">Foco em mobile</h3>
-        <p class="text-white/70 text-sm mt-1">Layout escuro, leve e direto ao ponto. Carrega em segundos.</p>
-      </div>
+
+      <footer>© 2025 Sistema Oculto — Acesso Sigiloso</footer>
     </div>
-  </section>
-
-  <!-- Provas (slots para prints/dep.) -->
-  <section id="prova" class="mx-auto max-w-6xl px-4 py-16 border-t border-white/10">
-    <h2 class="text-2xl md:text-3xl font-extrabold">Provas e resultados</h2>
-    <div class="mt-6 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-      <div class="aspect-[4/5] rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5"></div>
-      <div class="aspect-[4/5] rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5"></div>
-      <div class="aspect-[4/5] rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5"></div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="mx-auto max-w-6xl px-4 py-16 border-t border-white/10">
-    <h2 class="text-2xl md:text-3xl font-extrabold">Dúvidas rápidas</h2>
-    <div class="mt-6 space-y-4">
-      <details class="group bg-white/5 rounded-2xl p-5 border border-white/10">
-        <summary class="cursor-pointer list-none flex items-center justify-between">
-          <span class="font-semibold">Posso usar domínio próprio?</span>
-          <span class="text-white/40 group-open:rotate-180 transition">⌄</span>
-        </summary>
-        <p class="text-white/70 text-sm mt-3">Sim. Depois de publicar na Vercel, adicione seu domínio em <em>Settings → Domains</em> e aponte o DNS.</p>
-      </details>
-      <details class="group bg-white/5 rounded-2xl p-5 border border-white/10">
-        <summary class="cursor-pointer list-none flex items-center justify-between">
-          <span class="font-semibold">Como trocar o destino do CTA?</span>
-          <span class="text-white/40 group-open:rotate-180 transition">⌄</span>
-        </summary>
-        <p class="text-white/70 text-sm mt-3">Procure por <code>DESTINO_BASE</code> no script e altere para seu link do WhatsApp ou checkout.</p>
-      </details>
-      <details class="group bg-white/5 rounded-2xl p-5 border border-white/10">
-        <summary class="cursor-pointer list-none flex items-center justify-between">
-          <span class="font-semibold">Como ativo o Pixel?</span>
-          <span class="text-white/40 group-open:rotate-180 transition">⌄</span>
-        </summary>
-        <p class="text-white/70 text-sm mt-3">Troque <code>PIXEL_ID</code> pelo seu ID do Meta Pixel. O evento <code>Lead</code> dispara ao clicar no botão.</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="border-t border-white/10 py-10">
-    <div class="mx-auto max-w-6xl px-4 text-center text-sm text-white/50">
-      © <span id="year"></span> IA Black. Todos os direitos reservados.
-    </div>
-  </footer>
-
-  <!-- Preservar UTMs e montar CTA -->
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const keepParams = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','fbclid'];
-
-    function buildDestiny() {
-      const destOverride = params.get('dest');
-      const base = destOverride ? destOverride : DESTINO_BASE;
-      const url = new URL(base);
-      keepParams.forEach(k => { if (params.get(k)) url.searchParams.set(k, params.get(k)); });
-      return url.toString();
-    });
-      return url.toString();
-    }
-
-    // EXEMPLOS de destino (comente/descomente somente um):
-    // const DESTINO_BASE = 'https://wa.me/5521972362435?text=Quero%20ativar%20o%20Mecanismo';
-    const DESTINO_BASE = 'https://go.pepperpay.com.br/hb90b'; // Checkout padrão (pode sobrescrever com ?dest=)
-
-
-    function wireCTAs(){
-      const destiny = buildDestiny();
-      document.querySelectorAll('#cta-top, #cta-hero').forEach(a=>a.href = destiny);
-    }
-
-    wireCTAs();
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-
-  <!-- Banner simples de cookies (opcional) -->
-  <div id="cookie" class="fixed bottom-3 inset-x-3 sm:inset-x-auto sm:right-3 max-w-xl bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4 text-sm hidden">
-    <p class="text-white/70">Usamos cookies para medir campanhas. Ao continuar, você concorda com nossa <a href="#" class="underline">Política de Privacidade</a>.</p>
-    <button class="mt-2 btn text-xs font-semibold px-3 py-2 rounded-xl" onclick="document.getElementById('cookie').remove()">Ok</button>
   </div>
-  <script> if(!localStorage.getItem('ok_cookie')){ const b=document.getElementById('cookie'); b.classList.remove('hidden'); b.querySelector('button').addEventListener('click',()=>localStorage.setItem('ok_cookie',1)); } </script>
+
+  <script>
+    /* ===== CONTADOR DE VAGAS (rápido) ===== */
+    const slotsEl = document.getElementById("slots-value");
+    const CTA = document.querySelector(".btn");
+
+    let slots = parseInt(localStorage.getItem("slotsValue") || "20", 10);
+
+    function renderSlots() {
+      if (slots < 0) slots = 0;
+      slotsEl.textContent = slots;
+
+      const whatsMsg = encodeURIComponent("Carina, preciso entender melhor do que se trata...");
+      const whatsBase = "https://wa.me/5521988876516?text=" + whatsMsg;
+
+      if (slots <= 0) {
+        CTA.textContent = "ENTRAR NA LISTA";
+        CTA.setAttribute("href", whatsBase);
+      } else if (slots <= 3) {
+        CTA.textContent = "ÚLTIMAS " + slots + " VAGAS — ATIVAR AGORA";
+        CTA.setAttribute("href", whatsBase);
+      } else {
+        CTA.textContent = "QUERO ATIVAR MEU SISTEMA AGORA";
+        CTA.setAttribute("href", whatsBase);
+      }
+    }
+    function saveSlots(){ localStorage.setItem("slotsValue", String(slots)); }
+
+    function tickSlots(){
+      if (slots <= 0) return;
+      const drop = Math.random() < 0.25 ? 2 : 1;
+      slots = Math.max(0, slots - drop);
+      saveSlots();
+      renderSlots();
+
+      let nextMin, nextMax;
+      if (slots > 10) { nextMin = 6000; nextMax = 10000; }
+      else if (slots > 3){ nextMin = 4000; nextMax = 7000; }
+      else if (slots > 0){ nextMin = 3000; nextMax = 5000; }
+      else { return; }
+
+      const wait = nextMin + Math.random()*(nextMax - nextMin);
+      setTimeout(tickSlots, wait);
+    }
+
+    renderSlots();
+    setTimeout(tickSlots, 3000 + Math.random()*3000);
+
+    /* ===== MATRIX HACKER NEON (fundo) ===== */
+    const canvas = document.getElementById("matrixCanvas");
+    const ctx = canvas.getContext("2d");
+    let W, H;
+    function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+    window.addEventListener("resize", () => { resize(); drops = Array(columns()).fill(1); });
+    resize();
+
+    const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ$#@&%";
+    let fontSize = 16;
+    function columns(){ return Math.floor(W / fontSize); }
+    let drops = Array(columns()).fill(1);
+
+    function draw(){
+      ctx.fillStyle = "rgba(0,0,0,0.08)";
+      ctx.fillRect(0,0,W,H);
+
+      const grad = ctx.createLinearGradient(0,0,W,0);
+      grad.addColorStop(0, "#ff2ea6");
+      grad.addColorStop(1, "#b400ff");
+      ctx.fillStyle = grad;
+      ctx.shadowColor = "#ff2ea6";
+      ctx.shadowBlur = 10;
+      ctx.font = fontSize + "px monospace";
+
+      for(let i=0;i<drops.length;i++){
+        const text = letters.charAt(Math.floor(Math.random()*letters.length));
+        const x = i * fontSize;
+        const y = drops[i] * fontSize;
+        ctx.fillText(text, x, y);
+
+        if (y > H && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
 </body>
 </html>
